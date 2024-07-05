@@ -66,7 +66,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item active">
-                            <a href="pages/gallery.html" class="nav-link">
+                            <a href="<?= base_url();?>" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>
                                     Sewing
@@ -121,8 +121,7 @@
                             </table>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                            <button type="button" class="btn btn-primary" id="btn_save_new_anggota">Simpan</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
