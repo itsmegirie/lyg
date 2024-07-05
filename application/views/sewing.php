@@ -11,6 +11,15 @@
     <link rel="stylesheet" href="<?= base_url('assets/AdminLTE/plugins/fontawesome-free/css/all.min.css'); ?>">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="<?= base_url('assets/AdminLTE/dist/css/adminlte.min.css'); ?>">
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="<?= base_url('assets/AdminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/AdminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/AdminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css'); ?>">
+
+    <script>
+        var base_url = '<?= base_url() ?>';
+    </script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -80,7 +89,7 @@
                             <h3 class="card-title">Summary</h3>
                         </div>
                         <div class="card-body">
-                            <table id="table_anggota" class="table table-sm table-bordered table-striped table-hover">
+                            <table id="table_summary_output" class="table table-sm table-bordered table-striped table-hover">
                                 <thead>
                                     <tr>
                                         <th class="text-center">Date</th>
@@ -96,161 +105,28 @@
                 </div>
             </div>
 
-            <!-- <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-header border-0">
-                                    <div class="d-flex justify-content-between">
-                                        <h3 class="card-title">Online Store Visitors</h3>
-                                        <a href="javascript:void(0);">View Report</a>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex">
-                                        <p class="d-flex flex-column">
-                                            <span class="text-bold text-lg">820</span>
-                                            <span>Visitors Over Time</span>
-                                        </p>
-                                        <p class="ml-auto d-flex flex-column text-right">
-                                            <span class="text-success">
-                                                <i class="fas fa-arrow-up"></i> 12.5%
-                                            </span>
-                                            <span class="text-muted">Since last week</span>
-                                        </p>
-                                    </div>
-
-
-                                    <div class="position-relative mb-4">
-                                        <canvas id="visitors-chart" height="200"></canvas>
-                                    </div>
-
-                                    <div class="d-flex flex-row justify-content-end">
-                                        <span class="mr-2">
-                                            <i class="fas fa-square text-primary"></i> This Week
-                                        </span>
-
-                                        <span>
-                                            <i class="fas fa-square text-gray"></i> Last Week
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="card">
-                                <div class="card-header border-0">
-                                    <h3 class="card-title">Products</h3>
-                                    <div class="card-tools">
-                                        <a href="#" class="btn btn-tool btn-sm">
-                                            <i class="fas fa-download"></i>
-                                        </a>
-                                        <a href="#" class="btn btn-tool btn-sm">
-                                            <i class="fas fa-bars"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="card-body table-responsive p-0">
-                                    <table class="table table-striped table-valign-middle">
-                                        <thead>
-                                            <tr>
-                                                <th>Product</th>
-                                                <th>Price</th>
-                                                <th>Sales</th>
-                                                <th>More</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                                                    Some Product
-                                                </td>
-                                                <td>$13 USD</td>
-                                                <td>
-                                                    <small class="text-success mr-1">
-                                                        <i class="fas fa-arrow-up"></i>
-                                                        12%
-                                                    </small>
-                                                    12,000 Sold
-                                                </td>
-                                                <td>
-                                                    <a href="#" class="text-muted">
-                                                        <i class="fas fa-search"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                                                    Another Product
-                                                </td>
-                                                <td>$29 USD</td>
-                                                <td>
-                                                    <small class="text-warning mr-1">
-                                                        <i class="fas fa-arrow-down"></i>
-                                                        0.5%
-                                                    </small>
-                                                    123,234 Sold
-                                                </td>
-                                                <td>
-                                                    <a href="#" class="text-muted">
-                                                        <i class="fas fa-search"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                                                    Amazing Product
-                                                </td>
-                                                <td>$1,230 USD</td>
-                                                <td>
-                                                    <small class="text-danger mr-1">
-                                                        <i class="fas fa-arrow-down"></i>
-                                                        3%
-                                                    </small>
-                                                    198 Sold
-                                                </td>
-                                                <td>
-                                                    <a href="#" class="text-muted">
-                                                        <i class="fas fa-search"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
-                                                    Perfect Item
-                                                    <span class="badge bg-danger">NEW</span>
-                                                </td>
-                                                <td>$199 USD</td>
-                                                <td>
-                                                    <small class="text-success mr-1">
-                                                        <i class="fas fa-arrow-up"></i>
-                                                        63%
-                                                    </small>
-                                                    87 Sold
-                                                </td>
-                                                <td>
-                                                    <a href="#" class="text-muted">
-                                                        <i class="fas fa-search"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-
+            <!-- Modal detail transaction -->
+            <div class="modal fade" id="modal_detail_transaction" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="modal_detail_transactionLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 id="modal_detail_date"></h5>
+                            <!-- <h5 id="modal_detail_transactionLabel">Detail Transaction</h5> -->
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-
+                        <div class="modal-body">
+                            <table id="table_detail_summary" class="table table-sm table-bordered table-striped table-hover">
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <button type="button" class="btn btn-primary" id="btn_save_new_anggota">Simpan</button>
+                        </div>
                     </div>
-
                 </div>
-
-            </div> -->
+            </div>
 
         </div>
         <footer class="main-footer">
@@ -265,6 +141,22 @@
     <script src="<?= base_url('assets/AdminLTE/plugins/jquery/jquery.min.js'); ?>"></script>
     <script src="<?= base_url('assets/AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
     <script src="<?= base_url('assets/AdminLTE/dist/js/adminlte.js'); ?>"></script>
+
+    <!-- DataTables  & Plugins -->
+    <script src="<?= base_url('assets/AdminLTE/plugins/datatables/jquery.dataTables.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/AdminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/AdminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/AdminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/AdminLTE/plugins/datatables-buttons/js/dataTables.buttons.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/AdminLTE/plugins/datatables-buttons/js/buttons.bootstrap4.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/AdminLTE/plugins/jszip/jszip.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/AdminLTE/plugins/pdfmake/pdfmake.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/AdminLTE/plugins/pdfmake/vfs_fonts.js'); ?>"></script>
+    <script src="<?= base_url('assets/AdminLTE/plugins/datatables-buttons/js/buttons.html5.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/AdminLTE/plugins/datatables-buttons/js/buttons.print.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js'); ?>"></script>
+
+    <script src="<?= base_url('assets/js/lyg.js'); ?>"></script>
 </body>
 
 </html>
